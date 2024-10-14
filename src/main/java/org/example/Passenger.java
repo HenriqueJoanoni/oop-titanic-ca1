@@ -1,7 +1,5 @@
 package org.example;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Passenger implements Comparable<Passenger> {
@@ -17,7 +15,9 @@ public class Passenger implements Comparable<Passenger> {
     private double fare;                // cost of ticket
     private String cabin;           // cabin, list of cabins or NoCabin
     private String embarkedAt;      // port where passenger boarded ship
-    /** NEW ATTRIBUTE */
+    /**
+     * NEW ATTRIBUTE
+     */
     private Integer ticketClass;
 
     public Passenger(String passengerId, int survived, int passengerClassAsNumber, String name,
@@ -48,7 +48,9 @@ public class Passenger implements Comparable<Passenger> {
         this.embarkedAt = embarkedAt;
     }
 
-    /** OVERLOADED CONSTRUCTOR FOR SORTING BY PASSENGER ID AND TICKET NUMBER */
+    /**
+     * OVERLOADED CONSTRUCTOR FOR SORTING BY PASSENGER ID AND TICKET NUMBER
+     */
     public Passenger(String passengerId, String ticketNumber) {
         this.passengerId = passengerId;
         this.ticketNumber = ticketNumber;
@@ -168,7 +170,9 @@ public class Passenger implements Comparable<Passenger> {
         this.embarkedAt = embarkedAt;
     }
 
-    /** NEW GETTERS AND SETTERS */
+    /**
+     * NEW GETTERS AND SETTERS
+     */
     public Integer getTicketClass() {
         return ticketClass;
     }
