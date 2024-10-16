@@ -17,99 +17,99 @@ public class Main {
 
         // Assignment: Implement and test the following methods
 
-        /** GET PASSENGER NAMES */
+        /* Q1. GET PASSENGER NAMES */
         System.out.println("PASSENGER NAMES : " + Arrays.toString(getPassengerNames(passengerList)));
 
-        /** GET PASSENGER CONTAINING NAMES */
+        /* Q2. GET PASSENGER CONTAINING NAMES */
         System.out.println("PASSENGER CONTAINING NAMES : " + getPassengersContainingNames(passengerList, "William"));
 
-        /** PASSENGERS ELDER THAN */
+        /* Q3. PASSENGERS ELDER THAN */
         System.out.println("PASSENGER ELDER THAN 20: " + getPassengersOlderThan(passengerList, 20));
 
-        /** COUNT BY GENDER */
+        /* Q4. COUNT BY GENDER */
         System.out.println("ONLY MALE PASSENGERS: " + countPassengersByGender(passengerList, "male"));
         System.out.println("ONLY FEMALE PASSENGERS: " + countPassengersByGender(passengerList, "female"));
 
-        /** SUM FARES */
+        /* Q5. SUM FARES */
         System.out.printf("THE SUM OF ALL THE FARES IS: [$%.2f]\r\n", sumFares(passengerList));
 
-        /** COUNT OF MALE SURVIVORS */
+        /* Q6. COUNT OF MALE SURVIVORS */
         System.out.println("NAME OF MALE SURVIVORS: " + Arrays.toString(maleSurvivors(passengerList)));
 
-        /** TICKET OWNER */
-        System.out.println("PASSENGER TICKET NUMBER: " + ticketOwner(passengerList, "123"));
+        /* Q7. TICKET OWNER */
+        System.out.println("PASSENGER TICKET NUMBER: " + ticketOwner(passengerList, "382652"));
 
-        /** AVERAGE AGE */
+        /* Q8. AVERAGE AGE */
         System.out.println("AVERAGE AGE: " + averageAge(passengerList));
 
-        /** PASSENGER BY TICKET CLASS */
+        /* Q9. PASSENGER BY TICKET CLASS */
         System.out.println("PASSENGERS INTO A CERTAIN CLASS : " + getPassengersByTicketClass(passengerList, PassengerClass.FIRST));
 
-        /** SORTING BY ID */
+        /* Q10. SORTING BY ID */
         sortPassengersByPassengerId(passengerList);
         for (Passenger passenger : passengerList) {
             System.out.println(passenger);
         }
 
-        /** SORT PASSENGERS BY NAME */
+        /* Q11. SORT PASSENGERS BY NAME */
         sortPassengersByName(passengerList);
         for (Passenger passenger : passengerList) {
             System.out.println(passenger);
         }
 
-        /** SORT PASSENGERS BY AGE AND NAME */
+        /* Q12. SORT PASSENGERS BY AGE AND NAME */
         List<Passenger> sortedByAgeThenName = sortPassengersByAgeThenName(passengerList);
 
         for (Passenger passenger : sortedByAgeThenName) {
             System.out.println(passenger);
         }
 
-        /** SORT PASSENGERS BY GENDER AND PASSENGER NUMBER */
+        /* Q13. SORT PASSENGERS BY GENDER AND PASSENGER NUMBER */
         List<Passenger> sortedByGenderThenNumber = sortPassengersByGenderThenPassengerNumber(passengerList);
 
         for (Passenger passenger : sortedByGenderThenNumber) {
             System.out.println(passenger);
         }
 
-        /** SORTED BY FARE THEN SURVIVAL */
+        /* Q14. SORTED BY FARE THEN SURVIVAL */
         List<Passenger> sortedByFareThenSurvival = sortPassengersByFareThenSurvival(passengerList);
 
         for (Passenger passenger : sortedByFareThenSurvival) {
             System.out.println(passenger);
         }
 
-        /** SORTED BY TICKET CLASS */
+        /* Q15. SORTED BY TICKET CLASS */
         List<Passenger> sortedByTicketClass = sortPassengersByTicketClass(passengerList);
 
         for (Passenger passenger : sortedByTicketClass) {
             System.out.println(passenger);
         }
 
-        /** SORTED BY AGE */
+        /* Q16. SORTED BY AGE */
         List<Passenger> sortedByAge = sortPassengersByAge(passengerList);
 
         for (Passenger passenger : sortedByAge) {
             System.out.println(passenger);
         }
 
-        /** SORTED BY TICKET NUMBER LAMBDA */
+        /* Q17. SORTED BY TICKET NUMBER LAMBDA */
         List<Passenger> sortedByTicketNumberLambda = sortPassengersByTicketNumberLambda(passengerList);
 
         for (Passenger passenger : sortedByTicketNumberLambda) {
             System.out.println(passenger);
         }
 
-        /** SORTED BY NUMBER STATIC  */
+        /* Q18. SORTED BY NUMBER STATIC  */
         List<Passenger> sortedByTicketNumberStatic = sortPassengersByTicketNumberStatic(passengerList);
 
         for (Passenger passenger : sortedByTicketNumberStatic) {
             System.out.println(passenger);
         }
 
-        /** FIND PASSENGER BY TICKET NUMBER */
+        /* Q19. FIND PASSENGER BY TICKET NUMBER */
         Collections.sort(passengerList, Passenger.TicketNumberComparator);
 
-        Passenger targetPassengerByTicketNumber = new Passenger(null, "B456");
+        Passenger targetPassengerByTicketNumber = new Passenger(null, "347082");
         Passenger foundPassengerByTicketNumber = findPassengerByTicketNumber(passengerList, targetPassengerByTicketNumber);
 
         if (foundPassengerByTicketNumber != null) {
@@ -118,22 +118,21 @@ public class Main {
             System.out.println("Passenger not found :(");
         }
 
-        /** FIND PASSENGER BY ID */
+        /* Q20. FIND PASSENGER BY ID */
         Collections.sort(passengerList, Passenger.PassengerIdComparator);
 
-        Passenger targerPassengerById = new Passenger("2", null);
+        Passenger targetPassengerById = new Passenger("2", null);
 
-        Passenger foundPassengerById = findPassengerByPassengerId(passengerList, targerPassengerById);
+        Passenger foundPassengerById = findPassengerByPassengerId(passengerList, targetPassengerById);
 
         if (foundPassengerById != null) {
             System.out.println("Passenger found! " + foundPassengerById);
         } else {
             System.out.println("Passenger not found :(");
         }
-
     }
 
-    /**
+    /*
      * CUSTOM METHODS
      */
 
@@ -234,7 +233,7 @@ public class Main {
     }
 
     public static void sortPassengersByPassengerId(ArrayList<Passenger> passengerList) {
-        passengerList.sort(Comparator.comparing(Passenger::getPassengerId));
+        Collections.sort(passengerList);
     }
 
     public static void sortPassengersByName(ArrayList<Passenger> passengerList) {
@@ -257,7 +256,7 @@ public class Main {
     }
 
     public static List<Passenger> sortPassengersByTicketClass(List<Passenger> passengerList) {
-        passengerList.sort(Comparator.comparing(Passenger::getTicketClass));
+        passengerList.sort(Comparator.comparing(Passenger::getPassengerClass));
         return passengerList;
     }
 
@@ -340,15 +339,13 @@ public class Main {
                 double fare = sc.nextDouble();
                 String cabin = sc.next();
                 String embarkedAt = sc.next();
-                /** ADDING NEW ATTRIBUTE HERE  */
-                Integer ticketClass = sc.nextInt();
 
-                System.out.println(passengerId + ", " + name);
+//                System.out.println(passengerId + ", " + name);
 
                 passengerList.add(
                         new Passenger(passengerId, survived, passengerClass,
                                 name, gender, age, siblingsAndSpouses, parentsAndChildren, ticketNumber,
-                                fare, cabin, embarkedAt, ticketClass) // NEW ATTRIBUTE ticketClass
+                                fare, cabin, embarkedAt) // NEW ATTRIBUTE ticketClass
                 );
             }
         } catch (FileNotFoundException exception) {

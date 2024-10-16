@@ -15,17 +15,12 @@ public class Passenger implements Comparable<Passenger> {
     private double fare;                // cost of ticket
     private String cabin;           // cabin, list of cabins or NoCabin
     private String embarkedAt;      // port where passenger boarded ship
-    /**
-     * NEW ATTRIBUTE
-     */
-    private Integer ticketClass;
 
     public Passenger(String passengerId, int survived, int passengerClassAsNumber, String name,
                      String gender, int age, int siblingsAndSpouses, int parentsAndChildren,
-                     String ticketNumber, double fare, String cabin, String embarkedAt, Integer ticketClass) {
+                     String ticketNumber, double fare, String cabin, String embarkedAt) {
         this.passengerId = passengerId;
         this.survived = survived;
-        this.ticketClass = ticketClass;
 
         if (passengerClassAsNumber == 1) {
             passengerClass = PassengerClass.FIRST;
@@ -170,17 +165,6 @@ public class Passenger implements Comparable<Passenger> {
         this.embarkedAt = embarkedAt;
     }
 
-    /**
-     * NEW GETTERS AND SETTERS
-     */
-    public Integer getTicketClass() {
-        return ticketClass;
-    }
-
-    public void setTicketClass(Integer ticketClass) {
-        this.ticketClass = ticketClass;
-    }
-
     public String getCabin() {
         return cabin;
     }
@@ -194,7 +178,7 @@ public class Passenger implements Comparable<Passenger> {
      */
     @Override
     public int compareTo(Passenger other) {
-        return this.passengerId.compareTo(other.passengerId);
+        return Integer.compare(Integer.parseInt(this.passengerId), Integer.parseInt(other.passengerId));
     }
 
     public static final Comparator<Passenger> TicketNumberComparator = new Comparator<Passenger>() {
