@@ -183,15 +183,15 @@ public class Passenger implements Comparable<Passenger> {
 
     public static final Comparator<Passenger> TicketNumberComparator = new Comparator<Passenger>() {
         @Override
-        public int compare(Passenger p1, Passenger p2) {
-            return p1.getTicketNumber().compareTo(p2.getTicketNumber());
+        public int compare(Passenger passenger1, Passenger passenger2) {
+            return passenger1.getTicketNumber().compareTo(passenger2.getTicketNumber());
         }
     };
 
     public static final Comparator<Passenger> PassengerIdComparator = new Comparator<Passenger>() {
         @Override
-        public int compare(Passenger p1, Passenger p2) {
-            return p1.getPassengerId().compareTo(p2.getPassengerId());
+        public int compare(Passenger passenger1, Passenger passenger2) {
+            return passenger1.getPassengerId().compareTo(passenger2.getPassengerId());
         }
     };
 }

@@ -209,7 +209,7 @@ public class Main {
      * @return List<Passenger>
      */
     public static List<Passenger> sortPassengersByAgeThenName(List<Passenger> passengerList) {
-        passengerList.sort(Comparator.comparing(Passenger::getAge).thenComparing(Passenger::getName));
+        Collections.sort(passengerList, new PassengerByAgeThenNameComparator());
         return passengerList;
     }
 
@@ -220,7 +220,7 @@ public class Main {
      * @return List<Passenger>
      */
     public static List<Passenger> sortPassengersByGenderThenPassengerNumber(List<Passenger> passengerList) {
-        passengerList.sort(Comparator.comparing(Passenger::getGender).thenComparing(Passenger::getPassengerId));
+        Collections.sort(passengerList, new PassengerByGenderThenIdComparator());
         return passengerList;
     }
 
@@ -231,7 +231,7 @@ public class Main {
      * @return List<Passenger>
      */
     public static List<Passenger> sortPassengersByFareThenSurvival(List<Passenger> passengerList) {
-        passengerList.sort(Comparator.comparing(Passenger::getFare).thenComparing(Comparator.comparing(Passenger::getSurvived).reversed()));
+        Collections.sort(passengerList, new PassengerByFareThenSurvivalComparator());
         return passengerList;
     }
 
@@ -242,7 +242,7 @@ public class Main {
      * @return List<Passenger>
      */
     public static List<Passenger> sortPassengersByTicketClass(List<Passenger> passengerList) {
-        passengerList.sort(Comparator.comparing(Passenger::getPassengerClass));
+        Collections.sort(passengerList, new PassengerByTicketClassComparator());
         return passengerList;
     }
 
@@ -255,8 +255,8 @@ public class Main {
     public static List<Passenger> sortPassengersByAge(List<Passenger> passengerList) {
         passengerList.sort(new Comparator<Passenger>() {
             @Override
-            public int compare(Passenger p1, Passenger p2) {
-                return p1.getAge().compareTo(p2.getAge());
+            public int compare(Passenger passenger1, Passenger passenger2) {
+                return passenger1.getAge().compareTo(passenger2.getAge());
             }
         });
         return passengerList;
@@ -269,7 +269,7 @@ public class Main {
      * @return List<Passenger>
      */
     public static List<Passenger> sortPassengersByTicketNumberLambda(List<Passenger> passengerList) {
-        passengerList.sort((p1, p2) -> p1.getTicketNumber().compareTo(p2.getTicketNumber()));
+        passengerList.sort((passenger1, passenger2) -> passenger1.getTicketNumber().compareTo(passenger2.getTicketNumber()));
         return passengerList;
     }
 
